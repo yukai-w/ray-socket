@@ -19,7 +19,7 @@ async function main(connection, programAddress) {
         programAddress,
         ({ logs, err, signature }) => {
             if (err) return;
-            console.log(logs, new Date());
+            console.log(signature, logs, new Date());
             if (logs && logs.some(log => log.includes("initialize2"))) {
                 console.log("Signature for 'initialize2':", signature);
                 fetchRaydiumAccounts(signature, connection);
